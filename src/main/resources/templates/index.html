@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Number Generator</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Lotto Number Generator</h1>
+    <form action="/generate" method="get">
+        <button type="submit" class="generate-btn">Generate Numbers</button>
+    </form>
+    <div class="result">
+        <p th:if="${lottoNumbers}" th:text="'Your Lotto Numbers: ' + ${lottoNumbers}"></p>
+    </div>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>
