@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="/css/style.css">
+    <!-- 디버깅용 스타일 추가 -->
+    <style>
+        .lotto-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: lightblue;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -13,7 +29,16 @@
         <button type="submit" class="generate-btn">Generate Numbers</button>
     </form>
     <div class="result">
-        <p th:if="${lottoNumbers}" th:text="'Your Lotto Numbers: ' + ${lottoNumbers}"></p>
+
+        <!-- 로또 번호가 있을 경우 -->
+        <div class="lotto-numbers" th:if="${lottoNumbers}">
+            <span th:each="number : ${lottoNumbers}"
+                  th:class="'lotto-number'"
+                  th:text="${number}"></span>
+        </div>
+
+        <!-- 로또 번호가 없을 경우 -->
+        <p th:if="${lottoNumbers == null}">Click the button to generate your lotto numbers!</p>
     </div>
 </div>
 <script src="/js/script.js"></script>
